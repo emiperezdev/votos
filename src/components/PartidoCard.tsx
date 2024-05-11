@@ -43,16 +43,15 @@ const PartidoCard: React.FC<Props> = ({ partido }) => {
             <Subtitle text={name} />{" "}
             <IonRow>
               <IonCol size="6" className="ion-text-center">
-                <Button text="Ver" onClick={handleVerClick} />{" "}
+                <Button text="Detalles" onClick={handleVerClick} />{" "}
               </IonCol>
               <IonCol size="6" className="ion-text-center">
                 <Button text="Votar" onClick={handleVotarClick} />{" "}
-                {/* Añadimos el evento onClick para el botón de votar */}
               </IonCol>
             </IonRow>
             <IonRow>
               <IonCol size="12" className="ion-text-center">
-                <p>Votos: {votos}</p> {/* Mostramos el número de votos del partido actual */}
+                <p>Votos: {votos}</p>
               </IonCol>
             </IonRow>
           </IonCol>

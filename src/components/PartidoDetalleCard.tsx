@@ -12,15 +12,15 @@ interface Props {
 
 export const PartidoDetalleCard = ({ partidoId }: Props) => {
   const partido: Partido = partidos[partidoId - 1];
-  const { votosPartidos } = useVotos(); // Obtenemos el estado de los votos del store de Zustand
-  const votos = votosPartidos[`partido${partidoId}`]; // Obtenemos el número de votos del partido actual
+  const { votosPartidos } = useVotos(); 
+  const votos = votosPartidos[`partido${partidoId}`];
 
   return (
     <IonCard>
       <IonGrid>
         <Title text={partido.title} />
         <Subtitle text={partido.name} />
-        <Subtitle text={"Votos: " + votos} /> {/* Mostramos el número de votos del partido actual */}
+        <Subtitle text={"Votos: " + votos} /> 
         <ul>
           {partido.propuestas.map((item, index) => (
             <li key={index}>

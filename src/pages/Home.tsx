@@ -15,7 +15,7 @@ const Home: React.FC = () => {
         <IonGrid>
           <IonRow>
             <IonCol size="12" size-md="6" size-lg="4">
-              <LinkButton to="cards" buttonText="CARDS" />
+              <LinkButton to="cards" buttonText="PARTIDOS" />
             </IonCol>
           </IonRow>
           <IonRow>
@@ -25,7 +25,7 @@ const Home: React.FC = () => {
           </IonRow>
           <IonRow>
             <IonCol size="12" size-md="6" size-lg="4">
-              <LinkButton to="results" buttonText="RESULTS" />
+              <LinkButton to="results" buttonText="VOTOS" />
             </IonCol>
           </IonRow>
         </IonGrid>
