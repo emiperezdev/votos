@@ -15,12 +15,17 @@ const Home: React.FC = () => {
         <IonGrid>
           <IonRow>
             <IonCol size="12" size-md="6" size-lg="4">
-              <LinkButton to="cards" buttonText="PARTIDOS" />
+              <LinkButton to="login" buttonText="LOGIN" />
             </IonCol>
           </IonRow>
           <IonRow>
             <IonCol size="12" size-md="6" size-lg="4">
-              <LinkButton to="login" buttonText="LOGIN" />
+              <LinkButton to="addUser" buttonText="CREAR CUENTA" />
+            </IonCol>
+          </IonRow>
+          <IonRow>
+            <IonCol size="12" size-md="6" size-lg="4">
+              <LinkButton to="cards" buttonText="PARTIDOS" />
             </IonCol>
           </IonRow>
           <IonRow>

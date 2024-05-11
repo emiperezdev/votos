@@ -43,6 +43,7 @@ import { LoginPage } from "./pages/LoginPage";
 import { CardDetailPage } from "./pages/CardDetailPage";
 import ResultsPage from "./pages/ResultsPage";
 import CardsPage from "./pages/CardsPage";
+import AddUserPage from "./pages/AddUserPage";
 
 setupIonicReact();
 
@@ -53,6 +54,7 @@ const App: React.FC = () => (
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/results" component={ResultsPage} />
+          <Route path="/addUser" component={AddUserPage} />
           <Route path="/login" component={LoginPage} />
           <Route path="/cards/:id" component={CardDetailPage} />
           <Route path="/cards" component={CardsPage} />

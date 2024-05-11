@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import Header from "../components/Header";
 import PartidoCard from "../components/PartidoCard";
 import partidos from "../data/partidos";
