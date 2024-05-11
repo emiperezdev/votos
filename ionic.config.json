@@ -1,0 +1,7 @@
+{
+  "name": "votes",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}
