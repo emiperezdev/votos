@@ -79,7 +79,7 @@ const CreateUserCard = () => {
 
     localStorage.setItem("currentUser", JSON.stringify({ email: newUser.email, hasVoted: false }));
 
-    history.push("/cards");
+    history.push("/");
   };
 
   return (

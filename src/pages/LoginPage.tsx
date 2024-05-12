@@ -39,7 +39,7 @@ export const LoginPage = () => {
         (user: Usuario) => user.email === email && user.password === password
       );
       if (user) {
-        history.push("/cards");
+        history.push("/");
         setLogged(true);
         localStorage.setItem("currentUser", JSON.stringify({ email: user.email, hasVoted: false }));
       } else {
