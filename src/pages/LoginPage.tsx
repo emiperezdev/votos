@@ -32,38 +32,38 @@ export const LoginPage = () => {
             </IonCol>
           </IonRow>
           <IonRow>
-              <TextField
-                label="Correo electrónico"
-                variant="outlined"
-                value={email}
-                onChange={handleEmailChange}
-                style={{ margin: "15px", width: "100%" }}
-                InputLabelProps={{ style: { color: "#fff" } }}
-                InputProps={{
-                  style: { color: "#fff" },
-                  placeholder: "Escribe tu correo electrónico",
-                }}
-              />
-              <TextField
-                label="Contraseña"
-                variant="outlined"
-                type="password"
-                value={password}
-                onChange={handlePasswordChange}
-                style={{ margin: "15px", width: "100%" }}
-                InputLabelProps={{ style: { color: "#fff" } }}
-                InputProps={{
-                  style: { color: "#fff" },
-                  placeholder: "Escribe tu contraseña",
-                }}
-              />
-              <Button
-                variant="contained"
-                onClick={handleSubmit}
-                style={{ margin: "30px", width: "100%" }}
-              >
-                Iniciar sesión
-              </Button>
+            <TextField
+              label="Correo electrónico"
+              variant="outlined"
+              value={email}
+              onChange={handleEmailChange}
+              style={{ margin: "15px", width: "100%" }}
+              InputLabelProps={{ style: { color: "#fff" } }}
+              InputProps={{
+                style: { color: "#fff" },
+                placeholder: "Escribe tu correo electrónico",
+              }}
+            />
+            <TextField
+              label="Contraseña"
+              variant="outlined"
+              type="password"
+              value={password}
+              onChange={handlePasswordChange}
+              style={{ margin: "15px", width: "100%" }}
+              InputLabelProps={{ style: { color: "#fff" } }}
+              InputProps={{
+                style: { color: "#fff" },
+                placeholder: "Escribe tu contraseña",
+              }}
+            />
+            <Button
+              variant="contained"
+              onClick={handleSubmit}
+              style={{ margin: "30px", width: "100%" }}
+            >
+              Iniciar sesión
+            </Button>
           </IonRow>
         </IonGrid>
       </IonCard>
