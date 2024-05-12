@@ -15,7 +15,7 @@ const ResultsPage = () => {
   const options: ApexOptions = {
     chart: {
       type: "bar",
-      height: 800, // Ajusta la altura de la gráfica según tu preferencia
+      height: 800, 
       toolbar: {
         show: false,
       },
@@ -23,7 +23,7 @@ const ResultsPage = () => {
     plotOptions: {
       bar: {
         horizontal: false,
-        columnWidth: "30%", // Ajusta el ancho de las columnas de la barra según tu preferencia
+        columnWidth: "30%", 
       },
     },
     dataLabels: {
@@ -71,7 +71,7 @@ const ResultsPage = () => {
 
   return (
     <div>
-      <Header to="/" title="Votes Chart" />
+      <Header to="/" title="Votos Chart" />
       <div className="app">
         <div className="row">
           <div className="mixed-chart style={{ height: '500px'; }}">
