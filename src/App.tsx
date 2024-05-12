@@ -47,21 +47,25 @@ import AddUserPage from "./pages/AddUserPage";
 
 setupIonicReact();
 
-const App: React.FC = () => (
-  <IonApp>
-    <IonReactRouter>
-      <Router>
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/results" component={ResultsPage} />
-          <Route path="/addUser" component={AddUserPage} />
-          <Route path="/login" component={LoginPage} />
-          <Route path="/cards/:id" component={CardDetailPage} />
-          <Route path="/cards" component={CardsPage} />
-        </Switch>
-      </Router>
-    </IonReactRouter>
-  </IonApp>
-);
+const App: React.FC = () => {
+
+  return (
+    <IonApp>
+      <IonReactRouter>
+        <Router>
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/results" component={ResultsPage} />
+            <Route path="/cards/:id" component={CardDetailPage} />
+            <Route path="/cards" component={CardsPage} />
+            <Redirect from="/results" to="/" />
+            <Route path="/addUser" component={AddUserPage} />
+            <Route path="/login" component={LoginPage} />
+          </Switch>
+        </Router>
+      </IonReactRouter>
+    </IonApp>
+  );
+};
 
 export default App;

@@ -6,6 +6,7 @@ import Button from "@mui/material/Button";
 import Header from "../components/Header";
 import Alert from "../components/Alert";
 import Usuario from "../entities/Usuario";
+import useHasVoted from "../store/useIsLogged";
 
 const CreateUserCard = () => {
   const history = useHistory();
@@ -15,6 +16,7 @@ const CreateUserCard = () => {
   const [alertIsOpen, setAlertIsOpen] = useState(false);
   const [alertMessage, setAlertMessage] = useState("");
   const [usuarios, setUsuarios] = useState<Usuario[]>([]);
+  const setLogged = useHasVoted((s) => s.setLogged);
 
   useEffect(() => {
     const storedUsers = localStorage.getItem("users");
@@ -27,9 +29,7 @@ const CreateUserCard = () => {
     localStorage.setItem("users", JSON.stringify(users));
   };
 
-  const handleUserNameChange = (
-    event: React.ChangeEvent<HTMLInputElement>
-  ) => {
+  const handleUserNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setUserName(event.target.value);
   };
 
@@ -37,10 +37,13 @@ const CreateUserCard = () => {
     setEmail(event.target.value);
   };
 
-  const handlePasswordChange = (
-    event: React.ChangeEvent<HTMLInputElement>
-  ) => {
+  const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setPassword(event.target.value);
+  };
+
+  const validateEmail = (email: string): boolean => {
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailPattern.test(email);
   };
 
   const handleSubmit = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -50,11 +53,17 @@ const CreateUserCard = () => {
       setAlertIsOpen(true);
       return;
     }
+    if (!validateEmail(email)) {
+      setAlertMessage("Por favor ingresa un correo electrónico válido.");
+      setAlertIsOpen(true);
+      return;
+    }
     if (usuarios.some((user) => user.email === email)) {
       setAlertMessage("Este correo ya está registrado.");
       setAlertIsOpen(true);
       return;
     }
+    setLogged(true);
     const newUser: Usuario = {
       name: userName,
       email: email,
@@ -67,6 +76,9 @@ const CreateUserCard = () => {
     setEmail("");
     setPassword("");
     setAlertIsOpen(false);
+
+    localStorage.setItem("currentUser", JSON.stringify({ email: newUser.email, hasVoted: false }));
+
     history.push("/cards");
   };
 

@@ -6,23 +6,21 @@ import Button from "@mui/material/Button";
 import Header from "../components/Header";
 import Alert from "../components/Alert";
 import Usuario from "../entities/Usuario";
+import useHasVoted from "../store/useIsLogged";
 
 export const LoginPage = () => {
   const history = useHistory();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [alertIsOpen, setAlertIsOpen] = useState(false);
-  const [alertMessage, setAlertMessage] = useState("");
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [alertIsOpen, setAlertIsOpen] = useState<boolean>(false);
+  const [alertMessage, setAlertMessage] = useState<string>("");
+  const setLogged = useHasVoted((s) => s.setLogged);
 
-  const handleEmailChange = (
-    event: React.ChangeEvent<HTMLInputElement>
-  ) => {
+  const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(event.target.value);
   };
 
-  const handlePasswordChange = (
-    event: React.ChangeEvent<HTMLInputElement>
-  ) => {
+  const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setPassword(event.target.value);
   };
 
@@ -33,23 +31,24 @@ export const LoginPage = () => {
       setAlertIsOpen(true);
       return;
     }
-    
-    // Obtener usuarios del localStorage
+
     const storedUsers = localStorage.getItem("users");
     if (storedUsers) {
       const users: Usuario[] = JSON.parse(storedUsers);
-      // Verificar si existe un usuario con el correo y contraseña proporcionados
-      const user = users.find((user) => user.email === email && user.password === password);
+      const user = users.find(
+        (user: Usuario) => user.email === email && user.password === password
+      );
       if (user) {
-        // Usuario encontrado, redirigir a la página de tarjetas
         history.push("/cards");
+        setLogged(true);
+        localStorage.setItem("currentUser", JSON.stringify({ email: user.email, hasVoted: false }));
       } else {
-        // Usuario no encontrado, mostrar mensaje de error
-        setAlertMessage("Credenciales incorrectas. Por favor, inténtalo de nuevo.");
+        setAlertMessage(
+          "Credenciales incorrectas. Por favor, inténtalo de nuevo."
+        );
         setAlertIsOpen(true);
       }
     } else {
-      // No hay usuarios en el localStorage, mostrar mensaje de error
       setAlertMessage("No hay usuarios registrados. Regístrate primero.");
       setAlertIsOpen(true);
     }

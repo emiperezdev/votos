@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import Button from "./Button";
 import ImageComponent from "./ImageComponent";
@@ -8,6 +8,7 @@ import userImage from "../assets/user.jpg";
 import Partido from "../entities/Partido";
 import { IonCard, IonGrid, IonRow, IonCol } from "@ionic/react";
 import useVotos from "../store/useVotos";
+import Alert from "./Alert";
 
 interface Props {
   partido: Partido;
@@ -16,15 +17,35 @@ interface Props {
 const PartidoCard: React.FC<Props> = ({ partido }) => {
   const history = useHistory();
   const { id, title, name } = partido;
-  const { votosPartidos, setVotosPartido } = useVotos(); // Obtenemos el estado de los votos y la función para actualizarlos
-  const votos = votosPartidos[`partido${id}`]; // Obtenemos el número de votos del partido actual
+  const { votosPartidos, setVotosPartido } = useVotos();
+  const votos = votosPartidos[`partido${id}`];
+  const [alertOpen, setAlertOpen] = useState(false); 
 
   const handleVerClick = () => {
     history.push(`/cards/${id}`);
   };
 
   const handleVotarClick = () => {
-    setVotosPartido(`partido${id}`, votos + 1); // Incrementamos los votos del partido correspondiente
+    let currentUser = JSON.parse(localStorage.getItem("currentUser") || "null");
+    let votedUsers = JSON.parse(localStorage.getItem("votedUsers") || "[]");
+
+    if (currentUser === null) currentUser = { email: "", hasVoted: false };
+
+    if (currentUser && !currentUser.hasVoted && !votedUsers.includes(currentUser.email)) {
+      setVotosPartido(`partido${id}`, votos + 1);
+
+      currentUser.hasVoted = true;
+      localStorage.setItem("currentUser", JSON.stringify(currentUser));
+
+      votedUsers.push(currentUser.email);
+      localStorage.setItem("votedUsers", JSON.stringify(votedUsers));
+    } else {
+      setAlertOpen(true);
+    }
+  };
+
+  const handleCloseAlert = () => {
+    setAlertOpen(false);
   };
 
   return (
@@ -57,6 +78,7 @@ const PartidoCard: React.FC<Props> = ({ partido }) => {
           </IonCol>
         </IonRow>
       </IonGrid>
+      <Alert isOpen={alertOpen} message="¡Ya has votado!" onClose={handleCloseAlert} />
     </IonCard>
   );
 };
