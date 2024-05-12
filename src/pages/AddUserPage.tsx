@@ -42,7 +42,7 @@ const CreateUserCard = () => {
                 variant="outlined"
                 value={userName}
                 onChange={handleUserNameChange}
-                style={{ margin: "10px", width: "100%" }}
+                style={{ margin: "15px", width: "100%" }}
                 InputLabelProps={{ style: { color: "#fff" } }}
                 InputProps={{
                   style: { color: "#fff" },
@@ -54,7 +54,7 @@ const CreateUserCard = () => {
                 variant="outlined"
                 value={email}
                 onChange={handleEmailChange}
-                style={{ margin: "10px", width: "100%" }}
+                style={{ margin: "15px", width: "100%" }}
                 InputLabelProps={{ style: { color: "#fff" } }}
                 InputProps={{
                   style: { color: "#fff" },
@@ -67,7 +67,7 @@ const CreateUserCard = () => {
                 type="password"
                 value={password}
                 onChange={handlePasswordChange}
-                style={{ margin: "10px", width: "100%" }}
+                style={{ margin: "15px", width: "100%" }}
                 InputLabelProps={{ style: { color: "#fff" } }}
                 InputProps={{
                   style: { color: "#fff" },
@@ -77,7 +77,7 @@ const CreateUserCard = () => {
               <Button
                 variant="contained"
                 onClick={handleSubmit}
-                style={{ margin: "10px", width: "100%" }}
+                style={{ margin: "30px", width: "100%" }}
               >
                 Registrarse
               </Button>

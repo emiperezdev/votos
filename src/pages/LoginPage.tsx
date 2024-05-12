@@ -32,44 +32,38 @@ export const LoginPage = () => {
             </IonCol>
           </IonRow>
           <IonRow>
-            <IonCol size="12">
               <TextField
                 label="Correo electrónico"
                 variant="outlined"
                 value={email}
                 onChange={handleEmailChange}
-                style={{ margin: "10px", width: "100%" }}
+                style={{ margin: "15px", width: "100%" }}
                 InputLabelProps={{ style: { color: "#fff" } }}
                 InputProps={{
                   style: { color: "#fff" },
                   placeholder: "Escribe tu correo electrónico",
                 }}
               />
-            </IonCol>
-            <IonCol size="12">
               <TextField
                 label="Contraseña"
                 variant="outlined"
                 type="password"
                 value={password}
                 onChange={handlePasswordChange}
-                style={{ margin: "10px", width: "100%" }}
+                style={{ margin: "15px", width: "100%" }}
                 InputLabelProps={{ style: { color: "#fff" } }}
                 InputProps={{
                   style: { color: "#fff" },
                   placeholder: "Escribe tu contraseña",
                 }}
               />
-            </IonCol>
-            <IonCol size="12">
               <Button
                 variant="contained"
                 onClick={handleSubmit}
-                style={{ margin: "10px", width: "100%" }}
+                style={{ margin: "30px", width: "100%" }}
               >
                 Iniciar sesión
               </Button>
-            </IonCol>
           </IonRow>
         </IonGrid>
       </IonCard>
