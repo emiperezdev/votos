@@ -9,7 +9,7 @@ const Home: React.FC = () => {
   const isLogged = useHasVoted((s) => s.isLogged);
   return (
     <>
-      <Header to="/" title="Home" />
+      <Header to="/" title="Home" showBackButton={false} />
       <IonContent className="ion-justify-content-center ion-align-items-center">
         <h1 className="ion-text-center">VOTOS APP</h1>
         <IonGrid>

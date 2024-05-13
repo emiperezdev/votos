@@ -11,7 +11,13 @@ import { useHistory } from "react-router-dom";
 import { arrowBack, logOut } from "ionicons/icons";
 import useHasVoted from "../store/useIsLogged";
 
-const Header: React.FC<{ title: string; to: string }> = ({ title, to }) => {
+interface HeaderProps {
+  title: string;
+  to: string;
+  showBackButton: boolean;
+}
+
+const Header: React.FC<HeaderProps> = ({ title, to, showBackButton = true }) => { 
   const history = useHistory();
   const isLogged = useHasVoted((s) => s.isLogged);
   const setLogged = useHasVoted((s) => s.setLogged);
@@ -29,12 +35,18 @@ const Header: React.FC<{ title: string; to: string }> = ({ title, to }) => {
   return (
     <IonHeader>
       <IonToolbar>
-        <IonButtons slot="start">
-          <IonButton onClick={goBack}>
-            <IonIcon icon={arrowBack} />
-          </IonButton>
-        </IonButtons>
-        <h1>{title}</h1>
+        {showBackButton && (
+          <IonButtons slot="start">
+            <IonButton onClick={goBack}>
+              <IonIcon icon={arrowBack} />
+            </IonButton>
+          </IonButtons>
+        )}
+        {!showBackButton ? (
+          <h1 className="ion-margin-start">{title}</h1>
+        ) : (
+          <h1>{title}</h1>
+        )}
         {isLogged && (
           <IonButtons slot="end">
             <IonButton onClick={handleLogout}>

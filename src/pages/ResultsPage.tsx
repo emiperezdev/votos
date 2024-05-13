@@ -71,7 +71,7 @@ const ResultsPage = () => {
 
   return (
     <div>
-      <Header to="/" title="Votos Chart" />
+      <Header to="/" title="Votos Chart" showBackButton={true} />
       <div className="app">
         <div className="row">
           <div className="mixed-chart style={{ height: '500px'; }}">

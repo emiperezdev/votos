@@ -84,7 +84,7 @@ const CreateUserCard = () => {
 
   return (
     <div>
-      <Header to="/" title="Crear Cuenta" />
+      <Header to="/" title="Crear Cuenta" showBackButton={true}/>
       <IonCard>
         <IonGrid>
           <IonRow>

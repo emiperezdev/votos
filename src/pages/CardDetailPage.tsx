@@ -14,7 +14,7 @@ export const CardDetailPage = () => {
 
   return (
     <div>
-      <Header to='/cards' title='Propuestas' />
+      <Header to='/cards' title='Propuestas' showBackButton={true}/>
       <PartidoDetalleCard partidoId={partidoId} />
       <LinkButton to={'/results'} buttonText={'VER GRAFICA'}  />
     </div>

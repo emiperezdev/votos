@@ -7,7 +7,7 @@ const CardsPage = () => {
 
   return (
     <IonContent>
-      <Header to="/" title="Partidos" />
+      <Header to="/" title="Partidos" showBackButton={true}/>
       {partidos.map((partido) => (
         <PartidoCard key={partido.id} partido={partido} />
       ))}

@@ -56,7 +56,7 @@ export const LoginPage = () => {
 
   return (
     <div>
-      <Header to="/" title="Login" />
+      <Header to="/" title="Login" showBackButton={true}/>
       <IonCard>
         <IonGrid>
           <IonRow>
