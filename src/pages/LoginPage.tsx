@@ -17,11 +17,11 @@ export const LoginPage = () => {
   const setLogged = useHasVoted((s) => s.setLogged);
 
   const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setEmail(event.target.value);
+    setEmail(event.target.value.trim());
   };
 
   const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setPassword(event.target.value);
+    setPassword(event.target.value.trim());
   };
 
   const handleSubmit = (event: React.MouseEvent<HTMLButtonElement>) => {
