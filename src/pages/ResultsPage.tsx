@@ -3,6 +3,7 @@ import ReactApexChart from "react-apexcharts";
 import { ApexOptions } from "apexcharts";
 import useVotos from "../store/useVotos";
 import partidos from "../data/partidos";
+import { IonContent } from "@ionic/react";
 
 const ResultsPage = () => {
   const { votosPartidos } = useVotos();
@@ -70,7 +71,7 @@ const ResultsPage = () => {
   ];
 
   return (
-    <div>
+    <IonContent>
       <Header to="/" title="Votos Chart" showBackButton={true} />
       <div className="app">
         <div className="row">
@@ -84,7 +85,7 @@ const ResultsPage = () => {
           </div>
         </div>
       </div>
-    </div>
+    </IonContent>
   );
 };
 

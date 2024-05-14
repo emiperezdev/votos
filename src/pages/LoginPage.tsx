@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import { IonCard, IonGrid, IonRow, IonCol } from "@ionic/react";
+import { IonCard, IonGrid, IonRow, IonCol, IonContent } from "@ionic/react";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Header from "../components/Header";
@@ -55,7 +55,7 @@ export const LoginPage = () => {
   };
 
   return (
-    <div>
+    <IonContent>
       <Header to="/" title="Login" showBackButton={true}/>
       <IonCard>
         <IonGrid>
@@ -105,6 +105,6 @@ export const LoginPage = () => {
         message={alertMessage}
         onClose={() => setAlertIsOpen(false)}
       />
-    </div>
+    </IonContent>
   );
 };

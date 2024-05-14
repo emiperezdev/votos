@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import Header from '../components/Header'
 import { PartidoDetalleCard } from '../components/PartidoDetalleCard'
 import LinkButton from '../components/LinkButton';
+import { IonContent } from '@ionic/react';
 
 interface RouteParams {
   id: string; 
@@ -13,10 +14,10 @@ export const CardDetailPage = () => {
   const partidoId = parseInt(id);
 
   return (
-    <div>
+    <IonContent>
       <Header to='/cards' title='Propuestas' showBackButton={true}/>
       <PartidoDetalleCard partidoId={partidoId} />
       <LinkButton to={'/results'} buttonText={'VER GRAFICA'}  />
-    </div>
+    </IonContent>
   )
 }

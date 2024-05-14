@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import { IonCard, IonGrid, IonRow, IonCol } from "@ionic/react";
+import { IonCard, IonGrid, IonRow, IonCol, IonContent } from "@ionic/react";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Header from "../components/Header";
@@ -83,69 +83,69 @@ const CreateUserCard = () => {
   };
 
   return (
-    <div>
+    <IonContent>
       <Header to="/" title="Crear Cuenta" showBackButton={true}/>
-      <IonCard>
-        <IonGrid>
-          <IonRow>
-            <IonCol size="12">
-              <h2 className="ion-text-center">Crear Usuario</h2>
-            </IonCol>
-          </IonRow>
-          <IonRow>
-            <TextField
-              label="Nombre de usuario"
-              variant="outlined"
-              value={userName}
-              onChange={handleUserNameChange}
-              style={{ margin: "15px", width: "100%" }}
-              InputLabelProps={{ style: { color: "#fff" } }}
-              InputProps={{
-                style: { color: "#fff" },
-                placeholder: "Escribe tu nombre de usuario",
-              }}
-            />
-            <TextField
-              label="Correo electrónico"
-              variant="outlined"
-              value={email}
-              onChange={handleEmailChange}
-              style={{ margin: "15px", width: "100%" }}
-              InputLabelProps={{ style: { color: "#fff" } }}
-              InputProps={{
-                style: { color: "#fff" },
-                placeholder: "Escribe tu correo electrónico",
-              }}
-            />
-            <TextField
-              label="Contraseña"
-              variant="outlined"
-              type="password"
-              value={password}
-              onChange={handlePasswordChange}
-              style={{ margin: "15px", width: "100%" }}
-              InputLabelProps={{ style: { color: "#fff" } }}
-              InputProps={{
-                style: { color: "#fff" },
-                placeholder: "Escribe tu contraseña",
-              }}
-            />
-            <Button
-              variant="contained"
-              onClick={handleSubmit}
-              style={{ margin: "30px", width: "100%" }}
-            >
-              Registrarse
-            </Button>
-          </IonRow>
-        </IonGrid>
-      </IonCard>
+        <IonCard>
+          <IonGrid>
+            <IonRow>
+              <IonCol size="12">
+                <h2 className="ion-text-center">Crear Usuario</h2>
+              </IonCol>
+            </IonRow>
+            <IonRow>
+              <TextField
+                label="Nombre de usuario"
+                variant="outlined"
+                value={userName}
+                onChange={handleUserNameChange}
+                style={{ margin: "15px", width: "100%" }}
+                InputLabelProps={{ style: { color: "#fff" } }}
+                InputProps={{
+                  style: { color: "#fff" },
+                  placeholder: "Escribe tu nombre de usuario",
+                }}
+              />
+              <TextField
+                label="Correo electrónico"
+                variant="outlined"
+                value={email}
+                onChange={handleEmailChange}
+                style={{ margin: "15px", width: "100%" }}
+                InputLabelProps={{ style: { color: "#fff" } }}
+                InputProps={{
+                  style: { color: "#fff" },
+                  placeholder: "Escribe tu correo electrónico",
+                }}
+              />
+              <TextField
+                label="Contraseña"
+                variant="outlined"
+                type="password"
+                value={password}
+                onChange={handlePasswordChange}
+                style={{ margin: "15px", width: "100%" }}
+                InputLabelProps={{ style: { color: "#fff" } }}
+                InputProps={{
+                  style: { color: "#fff" },
+                  placeholder: "Escribe tu contraseña",
+                }}
+              />
+              <Button
+                variant="contained"
+                onClick={handleSubmit}
+                style={{ margin: "30px", width: "100%" }}
+              >
+                Registrarse
+              </Button>
+            </IonRow>
+          </IonGrid>
+        </IonCard>
       <Alert
         isOpen={alertIsOpen}
         message={alertMessage}
         onClose={() => setAlertIsOpen(false)}
       />
-    </div>
+    </IonContent>
   );
 };
 
