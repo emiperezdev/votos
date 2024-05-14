@@ -58,7 +58,7 @@ const PartidoCard: React.FC<Props> = ({ partido }) => {
         </IonRow>
         <IonRow>
           <IonCol size="4">
-            <ImageComponent src={userImage} />
+            <ImageComponent src={partido.imagen} />
           </IonCol>
           <IonCol size="8">
             <Subtitle text={name} />{" "}

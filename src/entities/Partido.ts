@@ -4,4 +4,5 @@ export default interface Partido {
   name: string;
   propuestas: string[];
   votos: number;
+  imagen: string;
 }
